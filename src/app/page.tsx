@@ -491,7 +491,7 @@ export default async function Home() {
         </div>
 
         <a
-          href="mailto:hello@thesportsdesk.example?subject=THE%20SPORTS%20DESK%20Newsletter"
+          href="mailto:editor.thesportsdesk@gmail.com?subject=THE%20SPORTS%20DESK%20Newsletter"
           className="newsletter-button"
         >
           GET IN TOUCH <span>→</span>
@@ -531,7 +531,7 @@ export default async function Home() {
               <h4>THE PUBLICATION</h4>
               <a href="#sports">Our coverage</a>
               <a href="#newsletter">Contact</a>
-              <a href="mailto:hello@thesportsdesk.example">
+              <a href="mailto:editor.thesportsdesk@gmail.com">
                 Get in touch
               </a>
             </div>
