@@ -532,7 +532,7 @@ export default async function Home() {
               <a href="#sports">Our coverage</a>
               <a href="#newsletter">Contact</a>
               <a href="mailto:editor.thesportsdesk@gmail.com">
-                Get in touch
+                editor.thesportsdesk@gmail.com
               </a>
             </div>
           </div>
