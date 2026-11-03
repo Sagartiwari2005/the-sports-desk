@@ -182,28 +182,28 @@ export default async function Home() {
           <div className="ticker-track">
             <div className="ticker-group">
               <span>WHY DO 22 PLAYERS CHASE ONE BALL?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>CAN YOU WIN WITHOUT PLAYING WELL?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>WHY DOES THE MANAGER GET ALL THE BLAME?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>IS POSSESSION ACTUALLY OVERRATED?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>WHAT DOES THE SCORE NEVER TELL US?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
             </div>
 
             <div className="ticker-group" aria-hidden="true">
               <span>WHY DO 22 PLAYERS CHASE ONE BALL?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>CAN YOU WIN WITHOUT PLAYING WELL?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>WHY DOES THE MANAGER GET ALL THE BLAME?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>IS POSSESSION ACTUALLY OVERRATED?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
               <span>WHAT DOES THE SCORE NEVER TELL US?</span>
-              <span className="ticker-star">✳</span>
+              <span className="ticker-star">◆</span>
             </div>
           </div>
         </div>
@@ -343,9 +343,7 @@ export default async function Home() {
                         : undefined
                     }
                   >
-                    <span className="story-number">
-                      0{index + 1}
-                    </span>
+                    <span className="story-number">0{index + 1}</span>
 
                     <span className="story-image-label">
                       {story.category ?? "FOOTBALL"}

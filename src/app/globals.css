@@ -28,7 +28,6 @@
 * {
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
@@ -986,12 +985,12 @@ a {
   .nav-links {
     width: max-content;
     min-width: max-content;
-    gap: 22px;
+    gap: 17px;
     height: 49px;
   }
 
   .nav-links a {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .nav-subscribe {
@@ -1463,9 +1462,10 @@ a {
     padding-right: 22px;
   }
 
-  .ticker-group > span:not(.ticker-star) {
-    font-size: 14px;
-  }
+  .ticker-group > .ticker-star {
+  font-size: 9px;
+  line-height: 1;
+}
 }
 
 /* ACCESSIBILITY */
@@ -1478,6 +1478,378 @@ a {
 
   .ticker-window {
     overflow-x: auto;
+  }
+}
+
+
+/* =========================================
+   THE SPORTS DESK — ARTICLE PAGE
+========================================= */
+
+.article-page {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111f35;
+}
+
+.article-topbar {
+  background: #0c1b30;
+  color: #ffffff;
+  padding: 13px 5%;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.article-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 24px 5%;
+}
+
+.article-brand {
+  text-decoration: none;
+  color: #111f35;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.article-brand span {
+  color: #2478d0;
+}
+
+.article-header > div {
+  margin-top: 15px;
+}
+
+.article-back-link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.article-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 75px 24px 100px;
+}
+
+.article-category {
+  color: #1674d1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.article-title {
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+  font-weight: 900;
+  color: #111f35;
+  margin: 0 0 25px;
+  overflow-wrap: break-word;
+}
+
+.article-subtitle {
+  font-size: 21px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0 0 30px;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 0;
+  margin-bottom: 40px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.article-meta strong {
+  color: #111f35;
+}
+
+.article-featured-figure {
+  margin: 0 0 45px;
+}
+
+.article-featured-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.article-image-caption {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.article-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.article-content p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #475569;
+  margin: 0 0 24px;
+}
+
+.article-content h2 {
+  font-size: 30px;
+  line-height: 1.25;
+  color: #111f35;
+  margin: 48px 0 18px;
+  font-weight: 800;
+}
+
+.article-content h3 {
+  font-size: 23px;
+  line-height: 1.3;
+  color: #111f35;
+  margin: 35px 0 14px;
+  font-weight: 700;
+}
+
+.article-content blockquote {
+  border-left: 4px solid #2878d0;
+  padding-left: 24px;
+  margin: 35px 0;
+  color: #334155;
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.article-inline-figure {
+  margin: 40px 0;
+}
+
+.article-inline-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.article-inline-link {
+  color: #1674d1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-end {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 65px;
+  padding-top: 30px;
+}
+
+.article-end-label {
+  color: #1674d1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.article-end h2 {
+  font-size: 25px;
+  font-weight: 800;
+  color: #111f35;
+  line-height: 1.3;
+}
+
+.article-return {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 15px 22px;
+  background: #111f35;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.article-footer {
+  background: #0c1b30;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   MOBILE ARTICLE EXPERIENCE
+========================================= */
+
+@media (max-width: 650px) {
+  .article-topbar {
+    padding: 11px 16px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .article-header {
+    padding: 19px 20px;
+  }
+
+  .article-brand {
+    font-size: 23px;
+  }
+
+  .article-header > div {
+    margin-top: 12px;
+  }
+
+  .article-back-link {
+    font-size: 10px;
+  }
+
+  .article-main {
+    padding: 45px 20px 65px;
+  }
+
+  .article-category {
+    font-size: 10px;
+    letter-spacing: 1.7px;
+    margin-bottom: 16px;
+  }
+
+  .article-title {
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 19px;
+  }
+
+  .article-subtitle {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 23px;
+  }
+
+  .article-meta {
+    gap: 8px;
+    padding: 15px 0;
+    margin-bottom: 27px;
+    font-size: 11px;
+  }
+
+  .article-featured-figure {
+    margin-bottom: 32px;
+  }
+
+  .article-featured-image {
+    max-height: 320px;
+    border-radius: 5px;
+  }
+
+  .article-image-caption {
+    font-size: 11px;
+  }
+
+  .article-content {
+    width: 100%;
+  }
+
+  .article-content p {
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 21px;
+  }
+
+  .article-content h2 {
+    font-size: 25px;
+    line-height: 1.3;
+    margin-top: 39px;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+
+  .article-content h3 {
+    font-size: 20px;
+    line-height: 1.35;
+    margin-top: 30px;
+    margin-bottom: 12px;
+  }
+
+  .article-content blockquote {
+    font-size: 18px;
+    line-height: 1.65;
+    padding-left: 17px;
+    margin: 28px 0;
+  }
+
+  .article-inline-figure {
+    margin: 28px 0;
+  }
+
+  .article-end {
+    margin-top: 45px;
+    padding-top: 25px;
+  }
+
+  .article-end h2 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .article-return {
+    padding: 14px 17px;
+    font-size: 10px;
+  }
+
+  .article-footer {
+    padding: 25px 15px;
+    font-size: 9px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================
+   THE SPORTS DESK — READING PROGRESS
+========================================= */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9999;
+  background: transparent;
+  pointer-events: none;
+}
+
+.reading-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #2878d0;
+  transition: width 0.12s ease-out;
+  box-shadow: 0 0 8px rgba(40, 120, 208, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress-fill {
+    transition: none;
   }
 }
 

@@ -1,5 +1,6 @@
 
 import { client } from "../../sanity/client";
+import ReadingProgress from "./ReadingProgress";
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import type { ReactNode } from "react";
@@ -23,26 +24,26 @@ type SanityArticle = {
 async function getArticle(slug: string): Promise<SanityArticle | null> {
     return client.fetch(
         `*[_type == "article" && slug.current == $slug && defined(publishedAt)][0] {
-      _id,
-      title,
-      subtitle,
-      "slug": slug.current,
-      author,
-      category,
-      excerpt,
-      publishedAt,
-      "mainImage": mainImage {
-        alt,
-        "url": asset->url
-      },
-      body[] {
-        ...,
-        _type == "image" => {
-          alt,
-          "url": asset->url
-        }
-      }
-    }`,
+          _id,
+          title,
+          subtitle,
+          "slug": slug.current,
+          author,
+          category,
+          excerpt,
+          publishedAt,
+          "mainImage": mainImage {
+            alt,
+            "url": asset->url
+          },
+          body[] {
+            ...,
+            _type == "image" => {
+              alt,
+              "url": asset->url
+            }
+          }
+        }`,
         { slug }
     );
 }
@@ -67,25 +68,14 @@ const portableTextComponents = {
             if (!value?.url) return null;
 
             return (
-                <figure style={{ margin: "40px 0" }}>
+                <figure className="article-inline-figure">
                     <img
+                        className="article-inline-image"
                         src={value.url}
                         alt={value.alt || "Article image"}
-                        style={{
-                            width: "100%",
-                            height: "auto",
-                            display: "block",
-                            borderRadius: "8px",
-                        }}
                     />
                     {value.alt && (
-                        <figcaption
-                            style={{
-                                fontSize: "13px",
-                                color: "#64748b",
-                                marginTop: "10px",
-                            }}
-                        >
+                        <figcaption className="article-image-caption">
                             {value.alt}
                         </figcaption>
                     )}
@@ -96,62 +86,19 @@ const portableTextComponents = {
 
     block: {
         h2: ({ children }: { children?: ReactNode }) => (
-            <h2
-                style={{
-                    fontSize: "30px",
-                    lineHeight: 1.25,
-                    color: "#111f35",
-                    marginTop: "48px",
-                    marginBottom: "18px",
-                    fontWeight: 800,
-                }}
-            >
-                {children}
-            </h2>
+            <h2>{children}</h2>
         ),
 
         h3: ({ children }: { children?: ReactNode }) => (
-            <h3
-                style={{
-                    fontSize: "23px",
-                    lineHeight: 1.3,
-                    color: "#111f35",
-                    marginTop: "35px",
-                    marginBottom: "14px",
-                    fontWeight: 700,
-                }}
-            >
-                {children}
-            </h3>
+            <h3>{children}</h3>
         ),
 
         blockquote: ({ children }: { children?: ReactNode }) => (
-            <blockquote
-                style={{
-                    borderLeft: "4px solid #2878d0",
-                    paddingLeft: "24px",
-                    margin: "35px 0",
-                    color: "#334155",
-                    fontSize: "22px",
-                    lineHeight: 1.6,
-                    fontWeight: 600,
-                }}
-            >
-                {children}
-            </blockquote>
+            <blockquote>{children}</blockquote>
         ),
 
         normal: ({ children }: { children?: ReactNode }) => (
-            <p
-                style={{
-                    fontSize: "18px",
-                    lineHeight: 1.9,
-                    color: "#475569",
-                    marginBottom: "24px",
-                }}
-            >
-                {children}
-            </p>
+            <p>{children}</p>
         ),
     },
 
@@ -172,11 +119,7 @@ const portableTextComponents = {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                        color: "#1674d1",
-                        textDecoration: "underline",
-                        textUnderlineOffset: "3px",
-                    }}
+                    className="article-inline-link"
                 >
                     {children}
                 </a>
@@ -198,125 +141,43 @@ export default async function ArticlePage({
     }
 
     return (
-        <main
-            style={{
-                minHeight: "100vh",
-                background: "#ffffff",
-                color: "#111f35",
-            }}
-        >
-            {/* TOP BAR */}
-            <div
-                style={{
-                    background: "#0c1b30",
-                    color: "#ffffff",
-                    padding: "13px 5%",
-                    fontSize: "11px",
-                    letterSpacing: "1.5px",
-                    fontWeight: 700,
-                }}
-            >
+        <main className="article-page">
+            <ReadingProgress />
+
+            <div className="article-topbar">
                 THE SPORTS DESK — INDEPENDENT SPORTS JOURNALISM
             </div>
 
-            {/* HEADER */}
-            <header
-                style={{
-                    borderBottom: "1px solid #e5e7eb",
-                    padding: "24px 5%",
-                }}
-            >
-                <a
-                    href="/"
-                    style={{
-                        textDecoration: "none",
-                        color: "#111f35",
-                        fontSize: "25px",
-                        fontWeight: 900,
-                        letterSpacing: "-1px",
-                    }}
-                >
-                    THE SPORTS<span style={{ color: "#2478d0" }}>DESK</span>
+            <header className="article-header">
+                <a href="/" className="article-brand">
+                    THE SPORTS<span>DESK</span>
                 </a>
 
-                <div style={{ marginTop: "15px" }}>
-                    <a
-                        href="/"
-                        style={{
-                            color: "#64748b",
-                            textDecoration: "none",
-                            fontSize: "12px",
-                            fontWeight: 700,
-                            letterSpacing: "1px",
-                        }}
-                    >
+                <div>
+                    <a href="/" className="article-back-link">
                         ← BACK TO THE HOMEPAGE
                     </a>
                 </div>
             </header>
 
-            {/* ARTICLE HEADER */}
-            <article
-                style={{
-                    maxWidth: "900px",
-                    margin: "0 auto",
-                    padding: "75px 24px 100px",
-                }}
-            >
-                <div
-                    style={{
-                        color: "#1674d1",
-                        fontSize: "12px",
-                        fontWeight: 800,
-                        letterSpacing: "2px",
-                        marginBottom: "22px",
-                        textTransform: "uppercase",
-                    }}
-                >
+            <article className="article-main">
+
+                <div className="article-category">
                     {article.category || "SPORTS JOURNALISM"}
                 </div>
 
-                <h1
-                    style={{
-                        fontSize: "clamp(38px, 7vw, 68px)",
-                        lineHeight: 1.08,
-                        letterSpacing: "-2.5px",
-                        fontWeight: 900,
-                        color: "#111f35",
-                        margin: "0 0 25px",
-                    }}
-                >
+                <h1 className="article-title">
                     {article.title}
                 </h1>
 
                 {article.subtitle && (
-                    <p
-                        style={{
-                            fontSize: "21px",
-                            lineHeight: 1.6,
-                            color: "#64748b",
-                            marginBottom: "30px",
-                        }}
-                    >
+                    <p className="article-subtitle">
                         {article.subtitle}
                     </p>
                 )}
 
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        alignItems: "center",
-                        gap: "12px",
-                        borderTop: "1px solid #e5e7eb",
-                        borderBottom: "1px solid #e5e7eb",
-                        padding: "20px 0",
-                        marginBottom: "40px",
-                        fontSize: "13px",
-                        color: "#64748b",
-                    }}
-                >
-                    <strong style={{ color: "#111f35" }}>
+                <div className="article-meta">
+                    <strong>
                         {article.author || "THE SPORTS DESK"}
                     </strong>
 
@@ -329,110 +190,55 @@ export default async function ArticlePage({
                     <span>THE SPORTS DESK</span>
                 </div>
 
-                {/* FEATURED IMAGE */}
                 {article.mainImage?.url && (
-                    <figure style={{ margin: "0 0 45px" }}>
+                    <figure className="article-featured-figure">
                         <img
+                            className="article-featured-image"
                             src={article.mainImage.url}
                             alt={article.mainImage.alt || article.title}
-                            style={{
-                                display: "block",
-                                width: "100%",
-                                height: "auto",
-                                maxHeight: "540px",
-                                objectFit: "cover",
-                                borderRadius: "6px",
-                            }}
                         />
+
                         {article.mainImage.alt && (
-                            <figcaption
-                                style={{
-                                    color: "#64748b",
-                                    fontSize: "12px",
-                                    marginTop: "10px",
-                                }}
-                            >
+                            <figcaption className="article-image-caption">
                                 {article.mainImage.alt}
                             </figcaption>
                         )}
                     </figure>
                 )}
 
-                {/* ARTICLE BODY */}
-                <div>
+                <div className="article-content">
                     {article.body && article.body.length > 0 ? (
                         <PortableText
                             value={article.body as never}
                             components={portableTextComponents}
                         />
                     ) : (
-                        <p style={{ color: "#64748b", fontSize: "17px" }}>
+                        <p>
                             The full article content has not been added yet.
                         </p>
                     )}
                 </div>
 
-                {/* END OF ARTICLE */}
-                <div
-                    style={{
-                        borderTop: "1px solid #e5e7eb",
-                        marginTop: "65px",
-                        paddingTop: "30px",
-                    }}
-                >
-                    <p
-                        style={{
-                            color: "#1674d1",
-                            fontSize: "12px",
-                            fontWeight: 800,
-                            letterSpacing: "2px",
-                        }}
-                    >
+                <section className="article-end">
+                    <p className="article-end-label">
                         THE SPORTS DESK
                     </p>
 
-                    <h2
-                        style={{
-                            fontSize: "25px",
-                            fontWeight: 800,
-                            color: "#111f35",
-                        }}
-                    >
+                    <h2>
                         More than the game. More than the score.
                     </h2>
 
-                    <a
-                        href="/"
-                        style={{
-                            display: "inline-block",
-                            marginTop: "15px",
-                            padding: "15px 22px",
-                            background: "#111f35",
-                            color: "#ffffff",
-                            textDecoration: "none",
-                            fontSize: "12px",
-                            fontWeight: 800,
-                            letterSpacing: "1px",
-                        }}
-                    >
+                    <a href="/" className="article-return">
                         RETURN TO THE SPORTS DESK →
                     </a>
-                </div>
+                </section>
+
             </article>
 
-            {/* FOOTER */}
-            <footer
-                style={{
-                    background: "#0c1b30",
-                    color: "#ffffff",
-                    textAlign: "center",
-                    padding: "30px 20px",
-                    fontSize: "11px",
-                    letterSpacing: "1px",
-                }}
-            >
+            <footer className="article-footer">
                 © 2026 THE SPORTS DESK. ALL RIGHTS RESERVED.
             </footer>
+
         </main>
     );
 }
