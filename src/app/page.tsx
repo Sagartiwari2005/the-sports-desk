@@ -1,3 +1,4 @@
+
 import { client } from "./sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { projectId, dataset } from "./sanity/env";
@@ -26,15 +27,25 @@ type SanityArticle = {
   featured?: boolean;
 };
 
-function getImageUrl(image?: SanityImage) {
+function getImageUrl(image?: SanityImage, width = 1200) {
   if (!image?.asset?._ref) return undefined;
 
   return imageBuilder
     .image(image)
-    .width(1600)
+    .width(width)
     .quality(85)
     .auto("format")
     .url();
+}
+
+function formatDate(date?: string) {
+  if (!date) return "RECENTLY PUBLISHED";
+
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 async function getPublishedArticles(): Promise<SanityArticle[]> {
@@ -55,47 +66,20 @@ async function getPublishedArticles(): Promise<SanityArticle[]> {
   );
 }
 
-const categories = [
-  {
-    name: "Football",
-    description: "Our main coverage",
-    status: "LIVE",
-    active: true,
-  },
-  {
-    name: "NFL",
-    description: "American football",
-    status: "COMING SOON",
-  },
-  {
-    name: "Basketball",
-    description: "The game beyond the rim",
-    status: "COMING SOON",
-  },
-  {
-    name: "Cricket",
-    description: "Stories from the crease",
-    status: "COMING SOON",
-  },
-];
-
 function SectionHeading({
   eyebrow,
   title,
-  description,
 }: {
   eyebrow: string;
   title: string;
-  description?: string;
 }) {
   return (
-    <div className="section-heading">
+    <div className="home-section-heading">
       <div>
         <span className="eyebrow">{eyebrow}</span>
         <h2>{title}</h2>
-        {description && <p>{description}</p>}
       </div>
-      <span className="section-line" />
+      <span className="home-heading-line" />
     </div>
   );
 }
@@ -104,14 +88,28 @@ export default async function Home() {
   const articles = await getPublishedArticles();
 
   const featuredArticle =
-    articles.find((article) => article.featured) ?? articles[0] ?? null;
+    articles.find((article) => article.featured) ??
+    articles[0] ??
+    null;
 
-  const latestArticles = articles.slice(0, 3);
-  const heroImage = getImageUrl(featuredArticle?.mainImage);
+  const supportingArticles = articles
+    .filter((article) => article._id !== featuredArticle?._id)
+    .slice(0, 2);
+
+  const latestArticles = articles
+    .filter(
+      (article) =>
+        article._id !== featuredArticle?._id &&
+        !supportingArticles.some((story) => story._id === article._id)
+    )
+    .slice(0, 5);
+
+  const leadImage = getImageUrl(featuredArticle?.mainImage, 1600);
 
   return (
-    <main>
-      {/* TOP BRAND BAR */}
+    <main className="home-editorial-page">
+
+      {/* PUBLICATION STRIP */}
       <div className="top-bar">
         <div className="container top-bar-inner">
           <span>INDEPENDENT SPORTS JOURNALISM</span>
@@ -119,7 +117,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* SHARED MASTHEAD */}
+      {/* MASTHEAD */}
       <header className="football-masthead">
         <div className="container football-masthead-inner">
           <a href="/" className="football-brand">
@@ -135,18 +133,16 @@ export default async function Home() {
         </div>
       </header>
 
-      {/* SHARED MAIN NAVIGATION */}
+      {/* MAIN NAVIGATION */}
       <nav className="main-nav" aria-label="Main navigation">
         <div className="container nav-inner">
           <div className="nav-links">
-            <a className="nav-active" href="/">
-              HOME
-            </a>
+            <a className="nav-active" href="/">HOME</a>
             <a href="/football">FOOTBALL</a>
             <a href="/latest">LATEST</a>
             <a href="/analysis">ANALYSIS</a>
             <a href="/opinion">OPINION</a>
-                        <a href="/about">ABOUT</a>
+            <a href="/about">ABOUT</a>
             <a href="/more-sports">MORE SPORTS</a>
           </div>
 
@@ -156,195 +152,97 @@ export default async function Home() {
         </div>
       </nav>
 
-      {/* EDITORIAL TICKER */}
-      <section className="desk-ticker" aria-label="Questions worth asking">
-        <div className="ticker-topline">
-          <div className="ticker-brand">
-            <span className="ticker-dot" />
-            THE DESK
-          </div>
-
-          <span className="ticker-description">
-            QUESTIONS WORTH ASKING
-          </span>
-
-          <span className="ticker-index">FIELD NOTES / 001</span>
-        </div>
-
-        <div className="ticker-window">
-          <div className="ticker-track">
-            <div className="ticker-group">
-              <span>WHY DO 22 PLAYERS CHASE ONE BALL?</span>
-              <span className="ticker-star">◆</span>
-              <span>CAN YOU WIN WITHOUT PLAYING WELL?</span>
-              <span className="ticker-star">◆</span>
-              <span>WHY DOES THE MANAGER GET ALL THE BLAME?</span>
-              <span className="ticker-star">◆</span>
-              <span>IS POSSESSION ACTUALLY OVERRATED?</span>
-              <span className="ticker-star">◆</span>
-              <span>WHAT DOES THE SCORE NEVER TELL US?</span>
-              <span className="ticker-star">◆</span>
+      {/* LEAD STORY */}
+      {featuredArticle ? (
+        <section className="container home-lead-section">
+          <div className="home-lead-copy">
+            <div className="home-story-meta">
+              <span>THE LEAD STORY</span>
+              <span className="home-meta-divider" />
+              <span>
+                {featuredArticle.category?.toUpperCase() ?? "SPORT"}
+              </span>
             </div>
 
-            <div className="ticker-group" aria-hidden="true">
-              <span>WHY DO 22 PLAYERS CHASE ONE BALL?</span>
-              <span className="ticker-star">◆</span>
-              <span>CAN YOU WIN WITHOUT PLAYING WELL?</span>
-              <span className="ticker-star">◆</span>
-              <span>WHY DOES THE MANAGER GET ALL THE BLAME?</span>
-              <span className="ticker-star">◆</span>
-              <span>IS POSSESSION ACTUALLY OVERRATED?</span>
-              <span className="ticker-star">◆</span>
-              <span>WHAT DOES THE SCORE NEVER TELL US?</span>
-              <span className="ticker-star">◆</span>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h1>{featuredArticle.title}</h1>
 
-      {/* HERO / FEATURED ARTICLE */}
-      <section className="container hero-section" id="football">
-        <div className="hero-copy">
-          <div className="story-meta">
-            <span className="category-label">
-              {featuredArticle ? "THE LEAD STORY" : "WELCOME TO THE DESK"}
-            </span>
+            <p className="home-lead-excerpt">
+              {featuredArticle.excerpt ??
+                featuredArticle.subtitle ??
+                "Read the latest story from THE SPORTS DESK."}
+            </p>
 
-            <span className="meta-divider" />
-
-            <span>
-              {featuredArticle?.category?.toUpperCase() ?? "FOOTBALL"}
-            </span>
-          </div>
-
-          <h1>
-            {featuredArticle ? (
-              featuredArticle.title
-            ) : (
-              <>
-                The game is bigger
-                <br />
-                than the <span>scoreline.</span>
-              </>
-            )}
-          </h1>
-
-          <p className="hero-description">
-            {featuredArticle?.excerpt ??
-              "Football has a story beyond the ninety minutes. We look closer at the people, ideas, decisions and moments that shape the game."}
-          </p>
-
-          <div className="hero-author">
-            <div className="author-avatar">SD</div>
-
-            <div>
+            <div className="home-lead-byline">
               <strong>
-                {featuredArticle?.author ?? "THE SPORTS DESK EDITORIAL TEAM"}
+                {featuredArticle.author ?? "THE SPORTS DESK"}
               </strong>
-              <span>INDEPENDENT FOOTBALL JOURNALISM</span>
+              <span>{formatDate(featuredArticle.publishedAt)}</span>
             </div>
-          </div>
 
-          {featuredArticle?.slug ? (
             <a
               href={`/articles/${featuredArticle.slug}`}
-              className="primary-button"
+              className="home-read-button"
             >
-              READ THE LEAD STORY <span>→</span>
+              READ THE FULL STORY <span>→</span>
             </a>
-          ) : (
-            <a href="#latest" className="primary-button">
-              EXPLORE OUR COVERAGE <span>→</span>
-            </a>
-          )}
-        </div>
-
-        <div
-          className="hero-image"
-          role="img"
-          aria-label={
-            featuredArticle?.title ?? "Football stadium under floodlights"
-          }
-          style={
-            heroImage
-              ? {
-                backgroundImage: `linear-gradient(0deg, rgba(5, 17, 33, 0.92), rgba(5, 17, 33, 0.05) 75%), url("${heroImage}")`,
-              }
-              : undefined
-          }
-        >
-          <div className="hero-image-overlay">
-            <span>BEYOND THE GAME</span>
-            <strong>
-              {featuredArticle
-                ? featuredArticle.title
-                : "THERE IS ALWAYS A BIGGER STORY."}
-            </strong>
           </div>
 
-          <span className="image-credit">
-            {featuredArticle ? "FEATURED STORY" : "THE SPORTS DESK"}
-          </span>
-        </div>
-      </section>
+          <a
+            href={`/articles/${featuredArticle.slug}`}
+            className="home-lead-image"
+            aria-label={`Read ${featuredArticle.title}`}
+            style={
+              leadImage
+                ? { backgroundImage: `url("${leadImage}")` }
+                : undefined
+            }
+          >
+            <span className="home-image-label">THE LEAD STORY</span>
+            <span className="home-image-caption">
+              {featuredArticle.title}
+            </span>
+          </a>
+        </section>
+      ) : (
+        <section className="container home-empty-lead">
+          <span className="eyebrow">WELCOME TO THE SPORTS DESK</span>
+          <h1>The game is bigger than the scoreline.</h1>
+          <p>
+            Our first stories are being prepared. Check back soon.
+          </p>
+        </section>
+      )}
 
-      {/* EDITORIAL STATEMENT */}
-      <section className="editorial-statement">
-        <div className="container statement-inner">
-          <span className="statement-mark">“</span>
+      {/* SUPPORTING STORIES */}
+      {supportingArticles.length > 0 && (
+        <section className="container home-supporting-section">
+          <SectionHeading
+            eyebrow="MORE FROM THE DESK"
+            title="Also worth your attention."
+          />
 
-          <div>
-            <span className="eyebrow">OUR EDITORIAL PROMISE</span>
-
-            <h2>
-              We don't just follow the game.
-              <br />
-              <span>
-                We question it, understand it and tell its stories.
-              </span>
-            </h2>
-          </div>
-        </div>
-      </section>
-
-      {/* LATEST STORIES */}
-      <section className="container content-section" id="latest">
-        <SectionHeading
-          eyebrow="WHAT'S HAPPENING"
-          title="Stories from the desk."
-          description="A closer look at the game, the people and the ideas shaping football."
-        />
-
-        <div className="stories-grid">
-          {latestArticles.length > 0 ? (
-            latestArticles.map((story, index) => {
-              const storyImage = getImageUrl(story.mainImage);
+          <div className="home-supporting-grid">
+            {supportingArticles.map((story, index) => {
+              const image = getImageUrl(story.mainImage, 850);
 
               return (
-                <article className="story-card" key={story._id}>
+                <article className="home-supporting-card" key={story._id}>
                   <a
                     href={`/articles/${story.slug}`}
-                    className="story-image"
+                    className="home-supporting-image"
                     aria-label={`Read ${story.title}`}
                     style={
-                      storyImage
-                        ? {
-                          backgroundImage: `linear-gradient(0deg, rgba(5, 17, 33, 0.65), transparent 70%), url("${storyImage}")`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }
+                      image
+                        ? { backgroundImage: `url("${image}")` }
                         : undefined
                     }
                   >
-                    <span className="story-number">0{index + 1}</span>
-                    <span className="story-image-label">
-                      {story.category ?? "FOOTBALL"}
-                    </span>
+                    <span>0{index + 1}</span>
                   </a>
 
-                  <div className="story-content">
+                  <div className="home-supporting-copy">
                     <span className="eyebrow">
-                      {story.category ?? "FOOTBALL"}
+                      {story.category ?? "SPORT"}
                     </span>
 
                     <h3>
@@ -353,109 +251,87 @@ export default async function Home() {
                       </a>
                     </h3>
 
-                    <p>{story.excerpt ?? story.subtitle ?? ""}</p>
+                    <p>
+                      {story.excerpt ?? story.subtitle ?? ""}
+                    </p>
 
-                    <div className="story-footer">
+                    <div className="home-supporting-meta">
                       <span>{story.author ?? "THE SPORTS DESK"}</span>
-                      <span>READ STORY ↗</span>
+                      <span>{formatDate(story.publishedAt)}</span>
                     </div>
                   </div>
                 </article>
               );
-            })
-          ) : (
-            <p>Our first stories are being prepared. Check back soon.</p>
-          )}
-        </div>
-      </section>
-
-      {/* ANALYSIS FEATURE */}
-      <section className="analysis-section" id="analysis">
-        <div className="container analysis-inner">
-          <div className="analysis-image">
-            <div className="analysis-image-caption">
-              THINK DEEPER. SEE MORE.
-            </div>
+            })}
           </div>
+        </section>
+      )}
 
-          <div className="analysis-copy">
-            <span className="eyebrow">BEYOND THE HEADLINES</span>
+      {/* LATEST ARTICLES */}
+      {latestArticles.length > 0 && (
+        <section className="home-latest-section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="FRESH FROM THE NEWSROOM"
+              title="The latest stories."
+            />
 
-            <h2>
-              Not just what happened.
-              <span>Why it happened.</span>
-            </h2>
+            <div className="home-latest-list">
+              {latestArticles.map((story) => {
+                const image = getImageUrl(story.mainImage, 450);
 
-            <p>
-              Numbers tell part of the story. Tactics, context and human
-              decisions tell the rest. Our analysis goes beyond the
-              obvious to explore what really happens in football.
-            </p>
+                return (
+                  <article className="home-latest-item" key={story._id}>
+                    <a
+                      href={`/articles/${story.slug}`}
+                      className="home-latest-image"
+                      aria-label={`Read ${story.title}`}
+                      style={
+                        image
+                          ? { backgroundImage: `url("${image}")` }
+                          : undefined
+                      }
+                    />
 
-            <a href="/analysis" className="text-link">
-              DISCOVER OUR APPROACH <span>→</span>
+                    <div className="home-latest-copy">
+                      <span className="eyebrow">
+                        {story.category ?? "SPORT"}
+                      </span>
+
+                      <h3>
+                        <a href={`/articles/${story.slug}`}>
+                          {story.title}
+                        </a>
+                      </h3>
+
+                      <p>
+                        {story.excerpt ?? story.subtitle ?? ""}
+                      </p>
+
+                      <div className="home-supporting-meta">
+                        <span>{story.author ?? "THE SPORTS DESK"}</span>
+                        <span>{formatDate(story.publishedAt)}</span>
+                      </div>
+                    </div>
+
+                    <a
+                      href={`/articles/${story.slug}`}
+                      className="home-latest-arrow"
+                      aria-label={`Read ${story.title}`}
+                    >
+                      ↗
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+
+            <a href="/latest" className="home-all-stories">
+              VIEW ALL STORIES <span>→</span>
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* OPINION */}
-      <section
-        className="container content-section opinion-section"
-        id="opinion"
-      >
-        <SectionHeading
-          eyebrow="A DIFFERENT PERSPECTIVE"
-          title="The conversation matters."
-          description="Football is never short of opinions. We make room for thoughtful ones."
-        />
-
-        <div className="opinion-banner">
-          <div>
-            <span className="eyebrow">THE OPINION DESK</span>
-
-            <h2>
-              Ask better questions.
-              <br />
-              Get beyond easy answers.
-            </h2>
-
-            <p>
-              Strong perspectives, honest debate and ideas worth discussing.
-            </p>
-          </div>
-
-          <div className="opinion-symbol">TSD.</div>
-        </div>
-      </section>
-
-      {/* OTHER SPORTS */}
-      <section className="sports-section" id="sports">
-        <div className="container">
-          <SectionHeading
-            eyebrow="A BIGGER SPORTING WORLD"
-            title="More games. More stories."
-            description="Football leads the way. Other sports will join our coverage soon."
-          />
-
-          <div className="sports-grid">
-            {categories.map((sport) => (
-              <div
-                className={`sport-card ${sport.active ? "sport-active" : ""}`}
-                key={sport.name}
-              >
-                <div className="sport-card-top">
-                  <span className="sport-status">{sport.status}</span>
-                  <span className="sport-arrow">↗</span>
-                </div>
-
-                <h3>{sport.name}</h3>
-                <p>{sport.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* NEWSLETTER */}
       <section className="container newsletter-section" id="newsletter">
@@ -509,8 +385,8 @@ export default async function Home() {
 
             <div>
               <h4>THE PUBLICATION</h4>
+              <a href="/about">About us</a>
               <a href="/more-sports">Our coverage</a>
-              <a href="#newsletter">Contact</a>
               <a href="mailto:editor.thesportsdesk@gmail.com">
                 editor.thesportsdesk@gmail.com
               </a>
