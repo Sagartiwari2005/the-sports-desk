@@ -1,4 +1,3 @@
-
 import { client } from "./sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { projectId, dataset } from "./sanity/env";
@@ -40,7 +39,7 @@ function getImageUrl(image?: SanityImage) {
 
 async function getPublishedArticles(): Promise<SanityArticle[]> {
   return client.fetch(
-    `*[_type == "article" && defined(publishedAt)] 
+    `*[_type == "article" && defined(publishedAt)]
       | order(publishedAt desc) {
         _id,
         title,
@@ -108,7 +107,6 @@ export default async function Home() {
     articles.find((article) => article.featured) ?? articles[0] ?? null;
 
   const latestArticles = articles.slice(0, 3);
-
   const heroImage = getImageUrl(featuredArticle?.mainImage);
 
   return (
@@ -121,40 +119,35 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* MASTHEAD */}
-      <header className="masthead">
-        <div className="container masthead-inner">
-          <a href="/" className="brand" aria-label="The Sports Desk home">
-            <span className="brand-mark">THE</span>
-            <span className="brand-name">
-              SPORTS<span>DESK</span>
-            </span>
-            <span className="brand-tagline">
-              MORE THAN THE GAME. MORE THAN THE SCORE.
-            </span>
+      {/* SHARED MASTHEAD */}
+      <header className="football-masthead">
+        <div className="container football-masthead-inner">
+          <a href="/" className="football-brand">
+            <span>THE SPORTS DESK</span>
+            <strong>INDEPENDENT SPORTS JOURNALISM</strong>
           </a>
 
-          <div className="masthead-right">
-            <span className="edition-label">THE INDEPENDENT EDITION</span>
-            <a href="#latest" className="masthead-link">
-              EXPLORE STORIES <span>↗</span>
-            </a>
+          <div className="football-edition">
+            <span>THE MATCHDAY CHRONICLE</span>
+            <strong>THE INDEPENDENT EDITION</strong>
+            <small>MORE THAN THE GAME. MORE THAN THE SCORE.</small>
           </div>
         </div>
       </header>
 
-      {/* MAIN NAVIGATION */}
+      {/* SHARED MAIN NAVIGATION */}
       <nav className="main-nav" aria-label="Main navigation">
         <div className="container nav-inner">
           <div className="nav-links">
             <a className="nav-active" href="/">
               HOME
             </a>
-            <a href="#football">FOOTBALL</a>
-            <a href="#latest">LATEST</a>
-            <a href="#analysis">ANALYSIS</a>
-            <a href="#opinion">OPINION</a>
-            <a href="#sports">MORE SPORTS</a>
+            <a href="/football">FOOTBALL</a>
+            <a href="/latest">LATEST</a>
+            <a href="/analysis">ANALYSIS</a>
+            <a href="/opinion">OPINION</a>
+                        <a href="/about">ABOUT</a>
+            <a href="/more-sports">MORE SPORTS</a>
           </div>
 
           <a href="#newsletter" className="nav-subscribe">
@@ -344,7 +337,6 @@ export default async function Home() {
                     }
                   >
                     <span className="story-number">0{index + 1}</span>
-
                     <span className="story-image-label">
                       {story.category ?? "FOOTBALL"}
                     </span>
@@ -361,9 +353,7 @@ export default async function Home() {
                       </a>
                     </h3>
 
-                    <p>
-                      {story.excerpt ?? story.subtitle ?? ""}
-                    </p>
+                    <p>{story.excerpt ?? story.subtitle ?? ""}</p>
 
                     <div className="story-footer">
                       <span>{story.author ?? "THE SPORTS DESK"}</span>
@@ -374,9 +364,7 @@ export default async function Home() {
               );
             })
           ) : (
-            <p>
-              Our first stories are being prepared. Check back soon.
-            </p>
+            <p>Our first stories are being prepared. Check back soon.</p>
           )}
         </div>
       </section>
@@ -394,8 +382,7 @@ export default async function Home() {
             <span className="eyebrow">BEYOND THE HEADLINES</span>
 
             <h2>
-              Not just what
-              happened.
+              Not just what happened.
               <span>Why it happened.</span>
             </h2>
 
@@ -405,7 +392,7 @@ export default async function Home() {
               obvious to explore what really happens in football.
             </p>
 
-            <a href="#latest" className="text-link">
+            <a href="/analysis" className="text-link">
               DISCOVER OUR APPROACH <span>→</span>
             </a>
           </div>
@@ -434,8 +421,7 @@ export default async function Home() {
             </h2>
 
             <p>
-              Strong perspectives, honest debate and ideas worth
-              discussing.
+              Strong perspectives, honest debate and ideas worth discussing.
             </p>
           </div>
 
@@ -500,34 +486,30 @@ export default async function Home() {
       <footer className="site-footer">
         <div className="container footer-main">
           <div className="footer-brand">
-            <a href="/" className="brand footer-logo">
-              <span className="brand-mark">THE</span>
-
-              <span className="brand-name">
-                SPORTS<span>DESK</span>
-              </span>
+            <a href="/" className="football-brand footer-logo">
+              <span>THE SPORTS DESK</span>
             </a>
 
             <p>MORE THAN THE GAME. MORE THAN THE SCORE.</p>
 
             <span className="footer-description">
-              Independent digital sports journalism.
-              Stories, perspectives and analysis beyond the final whistle.
+              Independent digital sports journalism. Stories, perspectives
+              and analysis beyond the final whistle.
             </span>
           </div>
 
           <div className="footer-links">
             <div>
               <h4>EXPLORE</h4>
-              <a href="#football">Football</a>
-              <a href="#latest">Latest stories</a>
-              <a href="#analysis">Analysis</a>
-              <a href="#opinion">Opinion</a>
+              <a href="/football">Football</a>
+              <a href="/latest">Latest stories</a>
+              <a href="/analysis">Analysis</a>
+              <a href="/opinion">Opinion</a>
             </div>
 
             <div>
               <h4>THE PUBLICATION</h4>
-              <a href="#sports">Our coverage</a>
+              <a href="/more-sports">Our coverage</a>
               <a href="#newsletter">Contact</a>
               <a href="mailto:editor.thesportsdesk@gmail.com">
                 editor.thesportsdesk@gmail.com

@@ -1,0 +1,439 @@
+
+/* =========================================
+   THE SPORTS DESK — MORE SPORTS
+========================================= */
+
+.more-sports-page {
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.more-sports-intro {
+    padding: 85px 9% 70px;
+    border-bottom: 1px solid var(--border);
+}
+
+.more-sports-kicker {
+    color: var(--burgundy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.more-sports-intro h2 {
+    font-family: Georgia, serif;
+    font-size: var(--type-display);
+    line-height: 1.02;
+    letter-spacing: -4px;
+    margin: 25px 0;
+}
+
+.more-sports-intro h2 span {
+    color: var(--burgundy);
+}
+
+.more-sports-intro > p {
+    max-width: 650px;
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: var(--type-intro);
+    line-height: 1.7;
+}
+
+/* =========================================
+   SPORTS DIRECTORY
+========================================= */
+
+.more-sports-directory {
+    padding: 60px 9% 100px;
+}
+
+.more-sports-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    padding-bottom: 18px;
+    margin-bottom: 35px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.more-sports-heading > div > span {
+    color: var(--burgundy);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.more-sports-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    margin: 10px 0 0;
+}
+
+.more-sports-heading > p {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================
+   SPORTS GRID
+========================================= */
+
+.more-sports-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.more-sport-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 390px;
+    padding: 25px 28px;
+    overflow: hidden;
+    background: #e9dfca;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid #c9b99e;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* =========================================
+   NFL — STADIUM GREEN
+========================================= */
+
+.more-sport-01 {
+    background: #174A35;
+    color: #F5F0E5;
+    border: 1px solid #174A35;
+    border-top: 5px solid #D6B66F;
+}
+
+.more-sport-01:hover {
+    background: #205C43;
+    box-shadow: 0 12px 25px rgba(23, 74, 53, 0.2);
+}
+
+/* =========================================
+   NBA — BASKETBALL ORANGE
+========================================= */
+
+.more-sport-02 {
+    background: #C65A32;
+    color: #FFF5E9;
+    border: 1px solid #C65A32;
+    border-top: 5px solid #F4D2A4;
+}
+
+.more-sport-02:hover {
+    background: #D36B40;
+    box-shadow: 0 12px 25px rgba(198, 90, 50, 0.2);
+}
+
+/* =========================================
+   CRICKET — TRADITIONAL CRICKET WHITES
+========================================= */
+
+.more-sport-03 {
+    background: #E5D9C5;
+    color: #29251F;
+    border: 1px solid #D5C3A7;
+    border-top: 5px solid #A52F38;
+}
+
+.more-sport-03:hover {
+    background: #EFE3D1;
+    box-shadow: 0 12px 25px rgba(95, 50, 40, 0.12);
+}
+
+/* =========================================
+   OTHER SPORTS — RACING BLUE
+========================================= */
+
+.more-sport-04 {
+    background: #245B83;
+    color: #F5F1E8;
+    border: 1px solid #245B83;
+    border-top: 5px solid #F0D18A;
+}
+
+.more-sport-04:hover {
+    background: #306D98;
+    box-shadow: 0 12px 25px rgba(36, 91, 131, 0.2);
+}
+
+/* =========================================
+   CARD TOP — INDIVIDUAL COLORS
+========================================= */
+
+.more-sport-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.more-sport-01 .more-sport-card-top {
+    color: #E8D9B7;
+}
+
+.more-sport-02 .more-sport-card-top {
+    color: #FFE0C4;
+}
+
+.more-sport-03 .more-sport-card-top {
+    color: #765B4B;
+}
+
+.more-sport-04 .more-sport-card-top {
+    color: #DDE9F1;
+}
+
+.more-sport-arrow {
+    color: var(--burgundy);
+    font-size: 23px;
+    transition: transform 0.3s ease;
+}
+
+.more-sport-01 .more-sport-arrow,
+.more-sport-03 .more-sport-arrow {
+    color: #D6B66F;
+}
+
+.more-sport-02 .more-sport-arrow {
+    color: #FFE0B2;
+}
+
+.more-sport-04 .more-sport-arrow {
+    color: #F0D18A;
+}
+
+.more-sport-card:hover .more-sport-arrow {
+    transform: translate(4px, -4px);
+}
+
+/* =========================================
+   CARD MAIN
+========================================= */
+
+.more-sport-card-main {
+    position: relative;
+    padding: 45px 0 35px;
+}
+
+.more-sport-subtitle {
+    display: block;
+    position: relative;
+    z-index: 1;
+    color: var(--burgundy);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.more-sport-01 .more-sport-subtitle {
+    color: #D6B66F;
+}
+
+.more-sport-02 .more-sport-subtitle {
+    color: #FFE0B2;
+}
+
+.more-sport-03 .more-sport-subtitle {
+    color: #A52F38;
+}
+
+.more-sport-04 .more-sport-subtitle {
+    color: #F0D18A;
+}
+
+.more-sport-symbol {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    color: rgba(75, 55, 35, 0.09);
+    font-family: Georgia, serif;
+    font-size: clamp(85px, 12vw, 145px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -8px;
+    pointer-events: none;
+}
+
+.more-sport-01 .more-sport-symbol,
+.more-sport-02 .more-sport-symbol,
+.more-sport-04 .more-sport-symbol {
+    color: rgba(255, 255, 255, 0.11);
+}
+
+.more-sport-03 .more-sport-symbol {
+    color: rgba(165, 47, 56, 0.09);
+}
+
+.more-sport-card-main h3 {
+    position: relative;
+    z-index: 1;
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 5vw, 62px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2.5px;
+    margin: 17px 0 12px;
+}
+
+.more-sport-card-main h4 {
+    position: relative;
+    z-index: 1;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.more-sport-card-main p {
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.more-sport-01 .more-sport-card-main p {
+    color: #E0E9E1;
+}
+
+.more-sport-02 .more-sport-card-main p {
+    color: #FFF0E3;
+}
+
+.more-sport-03 .more-sport-card-main p {
+    color: #66594D;
+}
+
+.more-sport-04 .more-sport-card-main p {
+    color: #E4EDF4;
+}
+
+/* =========================================
+   CARD BOTTOM
+========================================= */
+
+.more-sport-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(80, 60, 40, 0.25);
+    color: var(--burgundy);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.more-sport-01 .more-sport-card-bottom {
+    color: #E8D9B7;
+    border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.more-sport-02 .more-sport-card-bottom {
+    color: #FFE0C4;
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+
+.more-sport-03 .more-sport-card-bottom {
+    color: #765B4B;
+    border-top-color: rgba(120, 70, 55, 0.25);
+}
+
+.more-sport-04 .more-sport-card-bottom {
+    color: #DDE9F1;
+    border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.more-sports-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 9%;
+    background: var(--forest);
+    color: var(--paper);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+    .more-sports-grid {
+        gap: 18px;
+    }
+
+    .more-sport-card {
+        min-height: 360px;
+        padding: 22px;
+    }
+
+    .more-sports-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 550px) {
+    .more-sports-intro {
+        padding: 55px 9% 50px;
+    }
+
+    .more-sports-intro h2 {
+        letter-spacing: -2px;
+    }
+
+    .more-sports-directory {
+        padding: 45px 6% 70px;
+    }
+
+    .more-sports-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .more-sport-card {
+        min-height: 340px;
+    }
+
+    .more-sport-card-main h3 {
+        font-size: 48px;
+    }
+
+    .more-sports-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

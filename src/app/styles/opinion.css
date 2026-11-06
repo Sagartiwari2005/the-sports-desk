@@ -1,0 +1,347 @@
+/* =========================================
+   THE SPORTS DESK — OPINION PAGE
+========================================= */
+
+.opinion-page {
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+/* =========================================
+   OPINION INTRO
+========================================= */
+
+.opinion-intro {
+    padding: 85px 9% 70px;
+    border-bottom: 1px solid var(--border);
+}
+
+.opinion-kicker {
+    color: var(--burgundy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.opinion-intro h2 {
+    font-family: Georgia, serif;
+    font-size: var(--type-display);
+    line-height: 1.02;
+    letter-spacing: -4px;
+    margin: 25px 0;
+}
+
+.opinion-intro h2 span {
+    color: var(--burgundy);
+}
+
+.opinion-intro > p {
+    max-width: 650px;
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: var(--type-intro);
+    line-height: 1.7;
+}
+
+/* =========================================
+   OPINION CONTENT
+========================================= */
+
+.opinion-content {
+    padding: 55px 9% 100px;
+}
+
+.opinion-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 15px;
+    margin-bottom: 35px;
+}
+
+.opinion-section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin: 0;
+}
+
+.opinion-section-heading span {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================
+   LEAD OPINION
+========================================= */
+
+.opinion-lead {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 35px;
+    border-bottom: 1px solid var(--border);
+}
+
+.opinion-lead-image {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #ded3bd;
+}
+
+.opinion-lead-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.opinion-lead-image:hover img {
+    transform: scale(1.04);
+}
+
+.opinion-lead-image > span {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    padding: 9px 12px;
+    background: var(--burgundy);
+    color: var(--paper);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.opinion-placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--burgundy);
+    font-family: Georgia, serif;
+}
+
+.opinion-lead-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.opinion-category {
+    color: var(--burgundy);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.opinion-date {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.opinion-lead-info h3 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.08;
+    margin: 20px 0;
+}
+
+.opinion-lead-info p {
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.opinion-read-more {
+    display: inline-block;
+    color: var(--burgundy);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    margin-top: 15px;
+}
+
+/* =========================================
+   MORE OPINION
+========================================= */
+
+.opinion-more {
+    margin-top: 55px;
+}
+
+.opinion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px 25px;
+}
+
+.opinion-card {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 25px;
+}
+
+.opinion-card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.opinion-card-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #ded3bd;
+}
+
+.opinion-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.opinion-card a:hover .opinion-card-image img {
+    transform: scale(1.04);
+}
+
+.opinion-card-image > span {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--burgundy);
+    color: var(--paper);
+    padding: 7px 10px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.opinion-card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 17px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.opinion-card-meta span:first-child {
+    color: var(--burgundy);
+}
+
+.opinion-card h3 {
+    font-family: Georgia, serif;
+    font-size: var(--type-card);
+    line-height: 1.2;
+    margin: 15px 0 10px;
+}
+
+.opinion-card p {
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.opinion-empty {
+    padding: 65px 25px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.opinion-empty > span {
+    color: var(--burgundy);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.opinion-empty h3 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 20px 0 12px;
+}
+
+.opinion-empty p {
+    max-width: 650px;
+    margin-inline: auto;
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.opinion-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 9%;
+    background: var(--forest);
+    color: var(--paper);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+    .opinion-lead {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .opinion-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .opinion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .opinion-intro {
+        padding: 55px 9% 50px;
+    }
+
+    .opinion-intro h2 {
+        letter-spacing: -2px;
+    }
+
+    .opinion-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .opinion-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .opinion-content {
+        padding: 45px 6% 70px;
+    }
+}

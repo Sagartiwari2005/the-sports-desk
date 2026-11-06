@@ -1,0 +1,274 @@
+/* =========================================
+   OTHER SPORTS
+   The Wider Sporting World
+========================================= */
+
+.other-sports-page {
+    --other-paper: #e9dfca;
+    --other-cream: #f1e7d3;
+    --other-ink: #211f1b;
+    --other-gold: #9a793d;
+    --other-green: #315344;
+    --other-muted: #625c51;
+}
+
+/* Introduction */
+
+.other-intro {
+    position: relative;
+    overflow: hidden;
+    background: var(--other-paper);
+    color: var(--other-ink);
+}
+
+.other-intro::after {
+    content: "SPORT";
+    position: absolute;
+    right: 3%;
+    bottom: -45px;
+    font-family: var(--type-display);
+    font-size: clamp(140px, 23vw, 320px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.07em;
+    color: rgba(154, 121, 61, 0.075);
+    pointer-events: none;
+    user-select: none;
+}
+
+.other-intro .analysis-kicker {
+    position: relative;
+    z-index: 1;
+    color: var(--other-gold);
+}
+
+.other-intro h2,
+.other-intro h2 span {
+    position: relative;
+    z-index: 1;
+    color: var(--other-ink);
+}
+
+.other-intro h2 span {
+    color: var(--other-gold);
+}
+
+.other-intro p {
+    position: relative;
+    z-index: 1;
+    color: var(--other-muted);
+}
+
+.other-back-link {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-top: 28px;
+    padding-bottom: 7px;
+    color: #80632e;
+    border-bottom: 1px solid #80632e;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.other-back-link:hover {
+    color: #762d2b;
+    border-color: #762d2b;
+}
+
+/* Sporting directory */
+
+.other-sports-directory {
+    padding: 65px 9% 75px;
+    background: var(--other-cream);
+}
+
+.other-directory-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    padding-bottom: 22px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--other-ink);
+}
+
+.other-directory-heading > div > span {
+    color: var(--other-gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.other-directory-heading h2 {
+    margin: 10px 0 0;
+    color: var(--other-ink);
+    font-family: var(--type-display);
+    font-size: clamp(27px, 3vw, 40px);
+    line-height: 1.1;
+}
+
+.other-directory-heading > span {
+    color: #746c5f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* Individual sport rows */
+
+.other-sport-item {
+    display: grid;
+    grid-template-columns: 55px 1fr 1.1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 5px;
+    border-bottom: 1px solid #cfc3ad;
+    transition: padding 0.2s ease, background 0.2s ease;
+}
+
+.other-sport-item:hover {
+    padding-left: 12px;
+    background: rgba(154, 121, 61, 0.045);
+}
+
+.other-sport-number {
+    color: var(--other-gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.other-sport-item h3 {
+    margin: 0;
+    color: var(--other-ink);
+    font-family: var(--type-display);
+    font-size: clamp(23px, 3vw, 34px);
+    letter-spacing: -0.5px;
+}
+
+.other-sport-item p {
+    margin: 0;
+    color: var(--other-muted);
+    font-family: var(--type-intro);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Other sports article section */
+
+.other-content .analysis-section-heading h2 {
+    color: var(--other-ink);
+}
+
+.other-content .analysis-section-heading > span {
+    color: var(--other-gold);
+}
+
+/* Lead story */
+
+.other-lead .analysis-lead-image {
+    background: var(--other-gold);
+}
+
+.other-lead .analysis-lead-image > span {
+    background: var(--other-ink);
+    color: var(--other-cream);
+}
+
+.other-lead .analysis-category {
+    color: var(--other-gold);
+}
+
+/* Additional stories */
+
+.other-more {
+    margin-top: 76px;
+}
+
+.other-card h3 {
+    transition: color 0.2s ease;
+}
+
+.other-card:hover h3 {
+    color: #80632e;
+}
+
+.other-card .analysis-card-meta span:first-child {
+    color: var(--other-gold);
+}
+
+/* Empty state */
+
+.other-content .analysis-empty > span {
+    color: var(--other-gold);
+}
+
+.other-content .analysis-empty h3 {
+    color: var(--other-ink);
+}
+
+/* Footer */
+
+.other-footer {
+    border-top-color: rgba(154, 121, 61, 0.3);
+}
+
+.other-footer span:first-child {
+    color: var(--other-ink);
+}
+
+/* Responsive layout */
+
+@media (max-width: 700px) {
+    .other-intro::after {
+        right: -10px;
+        bottom: -5px;
+        font-size: 160px;
+    }
+
+    .other-sports-directory {
+        padding: 45px 6% 55px;
+    }
+
+    .other-directory-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .other-sport-item {
+        grid-template-columns: 35px 1fr;
+        gap: 10px;
+        padding: 22px 0;
+    }
+
+    .other-sport-item p {
+        grid-column: 2;
+    }
+
+    .other-more {
+        margin-top: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .other-intro::after {
+        font-size: 115px;
+        bottom: 0;
+    }
+
+    .other-back-link {
+        margin-top: 22px;
+    }
+
+    .other-directory-heading h2 {
+        font-size: 27px;
+    }
+
+    .other-sport-item h3 {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,1217 @@
+
+/* =========================================
+   THE SPORTS DESK
+   HOMEPAGE — EDITORIAL DESIGN SYSTEM
+========================================= */
+
+/* =========================================
+   HERO / LEAD STORY
+========================================= */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 34px;
+  padding-top: 62px;
+  padding-bottom: 68px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-copy {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: deskRise 0.9s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.story-meta {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: deskRise 0.8s ease 0.15s both;
+}
+
+.category-label {
+  color: var(--burgundy);
+}
+
+.meta-divider {
+  width: 1px;
+  height: 13px;
+  background: #b9a98f;
+}
+
+.hero-copy h1 {
+  margin: 25px 0 18px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--type-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  animation: deskRise 1s cubic-bezier(.2, .8, .2, 1) 0.2s both;
+}
+
+.hero-copy h1 span {
+  color: var(--burgundy);
+  transition: color 0.35s ease;
+}
+
+.hero-copy h1 span:hover {
+  color: var(--desk-gold);
+}
+
+.hero-description {
+  max-width: 455px;
+  color: #62594d;
+  font-size: var(--type-intro);
+  line-height: 1.85;
+  animation: deskRise 0.9s ease 0.4s both;
+}
+
+.hero-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  animation: deskRise 0.9s ease 0.55s both;
+}
+
+.author-avatar {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 0;
+  background: var(--forest);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.hero-author strong,
+.hero-author span {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-author strong {
+  color: var(--ink);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+.hero-author span {
+  margin-top: 5px;
+  color: #776b5b;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+}
+
+.primary-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  padding: 15px 20px;
+  background: var(--burgundy);
+  color: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.primary-button:hover {
+  background: #5e211e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(129, 44, 41, 0.2);
+}
+
+.primary-button span {
+  display: inline-block;
+  color: #e4c78d;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.primary-button:hover span {
+  transform: translateX(6px);
+}
+
+.hero-image {
+  min-height: 430px;
+  position: relative;
+  overflow: hidden;
+  border: 8px solid #e4d7bf;
+  outline: 1px solid #9c896d;
+  background-color: #40382e;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(5, 17, 33, 0.92),
+      rgba(5, 17, 33, 0.05) 75%
+    ),
+    url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=90")
+      center center / cover no-repeat;
+  box-shadow: 7px 7px 0 rgba(72, 53, 34, 0.12);
+  filter: sepia(0.12) saturate(0.82);
+  animation: deskImageReveal 1.3s ease both;
+  transition:
+    filter 0.5s ease,
+    transform 0.5s ease;
+}
+
+.hero-image:hover {
+  transform: translateY(-5px);
+  filter: sepia(0.08) saturate(1);
+}
+
+.hero-image-overlay {
+  position: absolute;
+  left: 27px;
+  bottom: 28px;
+  color: white;
+}
+
+.hero-image-overlay span,
+.hero-image-overlay strong {
+  display: block;
+}
+
+.hero-image-overlay span {
+  margin-bottom: 10px;
+  color: #e4c78d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.hero-image-overlay strong {
+  max-width: 350px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 2.3vw, 31px);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease, transform 0.4s ease;
+}
+
+.hero-image:hover .hero-image-overlay strong {
+  color: #e4c78d;
+  transform: translateX(5px);
+}
+
+.image-credit {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 9px;
+  background: var(--burgundy);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.8px;
+}
+
+/* =========================================
+   EDITORIAL STATEMENT
+========================================= */
+
+.editorial-statement {
+  background: #e7dcc7;
+  border-top: 4px double #b9a789;
+  border-bottom: 4px double #b9a789;
+}
+
+.statement-inner {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.statement-mark {
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 0.8;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.statement-inner h2 {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.8px;
+}
+
+.statement-inner h2 span {
+  color: #716554;
+}
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.content-section {
+  padding-top: 82px;
+  padding-bottom: 82px;
+  background-color: transparent;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 35px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #b9a98f;
+}
+
+.eyebrow {
+  color: var(--burgundy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.section-heading h2 {
+  margin: 8px 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #716657;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: #b9a98f;
+}
+
+/* =========================================
+   STORY CARDS
+========================================= */
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.story-card {
+  min-width: 0;
+  background: #f6eedf;
+  border: 1px solid #cdbda2;
+  box-shadow: 2px 3px 0 rgba(63, 47, 30, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 7px 0 rgba(63, 47, 30, 0.1);
+}
+
+.story-image {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  filter: sepia(0.13) saturate(0.86);
+}
+
+.story-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 17, 33, 0.75),
+    transparent 75%
+  );
+}
+
+.story-number,
+.story-image-label {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.story-number {
+  padding: 7px 10px;
+  background: var(--burgundy);
+  color: #f7ecd8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.story-image-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+.story-tactics {
+  background-image: url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=850&q=80");
+}
+
+.story-culture {
+  background-image: url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=850&q=80");
+}
+
+.story-stadium {
+  background-image: url("https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=850&q=80");
+}
+
+.story-content {
+  padding: 23px 21px 18px;
+}
+
+.story-content h3 {
+  margin: 11px 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--type-card);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+.story-content h3 a:hover {
+  color: var(--burgundy);
+}
+
+.story-content > p {
+  color: #6c6255;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.story-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 23px;
+  padding-top: 15px;
+  border-top: 1px solid #d5c7b0;
+  color: #776b5b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+/* =========================================
+   ANALYSIS FEATURE
+========================================= */
+
+.analysis-section {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+.analysis-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 70px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.analysis-image {
+  min-height: 360px;
+  position: relative;
+  border: 7px solid rgba(241, 231, 210, 0.2);
+  background:
+    linear-gradient(
+      0deg,
+      rgba(7, 18, 33, 0.8),
+      transparent 65%
+    ),
+    url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=85")
+      center / cover;
+  filter: sepia(0.16) saturate(0.8);
+}
+
+.analysis-image-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 25px;
+  color: white;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.analysis-copy .eyebrow {
+  color: #e0c48b;
+}
+
+.analysis-copy h2 {
+  margin: 20px 0;
+  color: #f1e7d2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(35px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.analysis-copy h2 span {
+  display: block;
+  color: #e0c48b;
+}
+
+.analysis-copy p {
+  max-width: 430px;
+  color: #e0d6c5;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 22px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #d4b879;
+  color: white;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+}
+
+.text-link span {
+  margin-left: 12px;
+  color: #e0c48b;
+}
+
+/* =========================================
+   OPINION
+========================================= */
+
+.opinion-section {
+  padding-bottom: 85px;
+}
+
+.opinion-banner {
+  min-height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 48px;
+  background: #e7dcc7;
+  border: 1px solid #cdbda2;
+  border-top: 5px solid var(--burgundy);
+}
+
+.opinion-banner h2 {
+  margin: 12px 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1.7px;
+}
+
+.opinion-banner p {
+  color: #716657;
+  font-size: 13px;
+}
+
+.opinion-symbol {
+  color: rgba(129, 44, 41, 0.16);
+  font-family: Georgia, serif;
+  font-size: clamp(55px, 10vw, 115px);
+  font-weight: 950;
+  letter-spacing: -8px;
+}
+
+/* =========================================
+   OTHER SPORTS
+========================================= */
+
+.sports-section {
+  padding-top: 75px;
+  padding-bottom: 85px;
+  background: #e8deca;
+  border-top: 1px solid #d0c1a8;
+  border-bottom: 1px solid #d0c1a8;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.sport-card {
+  padding: 23px 20px;
+  background: #f4ead7;
+  border: 1px solid #cdbda2;
+}
+
+.sport-active {
+  border-top: 4px solid var(--burgundy);
+}
+
+.sport-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sport-status {
+  color: #7d8797;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+}
+
+.sport-active .sport-status,
+.sport-arrow {
+  color: var(--burgundy);
+}
+
+.sport-arrow {
+  font-size: 16px;
+}
+
+.sport-card h3 {
+  margin: 23px 0 7px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.sport-card p {
+  margin: 0;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+.newsletter-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.newsletter-content h2 {
+  margin: 12px 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 45px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1.8px;
+}
+
+.newsletter-content h2 span {
+  display: block;
+  color: var(--burgundy);
+}
+
+.newsletter-content p {
+  max-width: 490px;
+  color: #6c6255;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.newsletter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 17px 24px;
+  background: var(--burgundy);
+  color: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.newsletter-button:hover {
+  background: #5e211e;
+}
+
+.newsletter-button span {
+  color: #e4c78d;
+  font-size: 17px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  background: #1d382d;
+  color: #f1e7d2;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  padding-top: 60px;
+  padding-bottom: 55px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  color: #f1e7d2;
+}
+
+.footer-brand > p {
+  margin-top: 13px;
+  color: #e0c48b;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+.footer-description {
+  display: block;
+  max-width: 310px;
+  margin-top: 17px;
+  color: #d4c9b7;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  gap: 85px;
+}
+
+.footer-links > div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links h4 {
+  margin: 0 0 5px;
+  color: #e0c48b;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+
+.footer-links a {
+  color: #d4c9b7;
+  font-size: 11px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff4df;
+}
+
+.footer-bottom {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid rgba(241, 231, 210, 0.22);
+  color: #c5b9a6;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+/* =========================================
+   SIGNATURE ANIMATIONS
+========================================= */
+
+@keyframes deskRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes deskImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    clip-path: inset(0 0 15% 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* =========================================
+   EDITORIAL TICKER
+========================================= */
+
+.desk-ticker {
+  position: relative;
+  overflow: hidden;
+  background: #0c192c;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 3px solid #2679dc;
+}
+
+.ticker-topline {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px max(4%, calc((100% - 1250px) / 2));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ticker-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.ticker-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #d9a441;
+  box-shadow: 0 0 12px rgba(217, 164, 65, 0.6);
+  animation: tickerPulse 2s ease-in-out infinite;
+}
+
+.ticker-description,
+.ticker-index {
+  color: #aab9cc;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.ticker-index {
+  color: #d9a441;
+}
+
+.ticker-window {
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: deskTickerMove 55s linear infinite;
+  will-change: transform;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 32px;
+  padding-right: 32px;
+  white-space: nowrap;
+}
+
+.ticker-group > span:not(.ticker-star) {
+  color: #fff;
+  font-size: clamp(15px, 1.7vw, 20px);
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  transition: color 0.3s ease;
+}
+
+.ticker-star {
+  color: #d9a441;
+  font-size: 21px;
+  transition: transform 0.4s ease;
+}
+
+.desk-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-group > span:not(.ticker-star):hover {
+  color: #80baff;
+}
+
+.ticker-group > span:not(.ticker-star):hover + .ticker-star {
+  transform: rotate(90deg) scale(1.3);
+}
+
+@keyframes deskTickerMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tickerPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+  .hero-section {
+    gap: 25px;
+  }
+
+  .stories-grid {
+    gap: 15px;
+  }
+
+  .story-content {
+    padding: 18px 15px;
+  }
+
+  .analysis-inner {
+    gap: 35px;
+  }
+
+  .footer-links {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 650px) {
+  /* Homepage-only top bar adjustment */
+  .top-bar-inner {
+    min-height: 30px;
+  }
+
+  .top-bar-inner span:last-child {
+    display: none;
+  }
+
+  /* Shared navigation: responsive scrolling, same design */
+  .nav-inner {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links {
+    width: max-content;
+    min-width: max-content;
+    gap: 17px;
+  }
+
+  .nav-subscribe {
+    display: none;
+  }
+
+  /* Ticker */
+  .ticker-topline {
+    padding: 10px 18px;
+  }
+
+  .ticker-description {
+    font-size: 8px;
+  }
+
+  .ticker-index {
+    display: none;
+  }
+
+  .ticker-window {
+    padding: 16px 0;
+  }
+
+  .ticker-group {
+    gap: 22px;
+    padding-right: 22px;
+  }
+
+  .ticker-star {
+    font-size: 14px;
+  }
+
+  /* Hero */
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-top: 38px;
+    padding-bottom: 42px;
+  }
+
+  .hero-copy {
+    padding-top: 0;
+  }
+
+  .hero-copy h1 {
+    margin-top: 18px;
+    letter-spacing: -1.8px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-image {
+    min-height: 300px;
+    border-width: 5px;
+  }
+
+  .hero-image-overlay {
+    left: 18px;
+    bottom: 20px;
+  }
+
+  .hero-image-overlay strong {
+    font-size: 22px;
+  }
+
+  /* Editorial statement */
+  .statement-inner {
+    gap: 13px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .statement-mark {
+    font-size: 65px;
+  }
+
+  .statement-inner h2 {
+    font-size: 19px;
+  }
+
+  /* Content sections */
+  .content-section,
+  .sports-section {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .section-heading {
+    margin-bottom: 25px;
+    gap: 12px;
+  }
+
+  .section-line {
+    display: none;
+  }
+
+  .section-heading h2 {
+    font-size: 29px;
+  }
+
+  .section-heading p {
+    font-size: 11px;
+  }
+
+  /* Story cards */
+  .stories-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .story-image {
+    min-height: 235px;
+  }
+
+  .story-content {
+    padding: 22px;
+  }
+
+  .story-content h3 {
+    font-size: 22px;
+  }
+
+  /* Analysis */
+  .analysis-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 50px;
+    padding-bottom: 55px;
+  }
+
+  .analysis-image {
+    min-height: 275px;
+  }
+
+  .analysis-copy h2 {
+    font-size: 38px;
+  }
+
+  /* Opinion */
+  .opinion-section {
+    padding-bottom: 60px;
+  }
+
+  .opinion-banner {
+    min-height: 220px;
+    padding: 27px 22px;
+    border-top-width: 4px;
+  }
+
+  .opinion-banner h2 {
+    font-size: 28px;
+  }
+
+  .opinion-symbol {
+    display: none;
+  }
+
+  /* Other sports */
+  .sports-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sport-card {
+    padding: 17px 14px;
+  }
+
+  .sport-card h3 {
+    font-size: 19px;
+  }
+
+  /* Newsletter */
+  .newsletter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .newsletter-content h2 {
+    font-size: 36px;
+  }
+
+  /* Footer */
+  .footer-main {
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 45px;
+    padding-bottom: 40px;
+  }
+
+  .footer-links {
+    gap: 55px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    font-size: 7px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ticker-window {
+    overflow-x: auto;
+  }
+}
+
+/* =========================================
+   SIGNATURE COLOUR VARIABLES
+========================================= */
+
+:root {
+  --desk-navy: #0c192c;
+  --desk-blue: #2679dc;
+  --desk-gold: #d9a441;
+  --desk-paper: #f5f3ed;
+}

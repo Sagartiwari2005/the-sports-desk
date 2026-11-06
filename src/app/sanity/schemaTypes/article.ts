@@ -40,6 +40,42 @@ export const article = defineType({
         }),
 
         defineField({
+            name: "sport",
+            title: "Sport",
+            type: "string",
+            description: "Select the sport this article covers.",
+            options: {
+                list: [
+                    { title: "Football", value: "football" },
+                    { title: "NFL", value: "nfl" },
+                    { title: "Basketball", value: "basketball" },
+                    { title: "Cricket", value: "cricket" },
+                    { title: "Other Sports", value: "other" },
+                ],
+                layout: "dropdown",
+            },
+            validation: (Rule) => Rule.required(),
+        }),
+
+        defineField({
+            name: "section",
+            title: "Editorial Section",
+            type: "string",
+            description: "Choose the editorial section where this article belongs.",
+            options: {
+                list: [
+                    { title: "News", value: "news" },
+                    { title: "Analysis", value: "analysis" },
+                    { title: "Opinion", value: "opinion" },
+                    { title: "Features", value: "features" },
+                    { title: "Culture", value: "culture" },
+                ],
+                layout: "dropdown",
+            },
+            validation: (Rule) => Rule.required(),
+        }),
+
+        defineField({
             name: "category",
             title: "Category",
             type: "string",

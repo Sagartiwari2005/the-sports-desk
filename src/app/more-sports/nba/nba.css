@@ -1,0 +1,164 @@
+/* =========================================
+   NBA DESK
+   Basketball Editorial Styling
+========================================= */
+
+.nba-page {
+    --nba-burgundy: #762d2b;
+    --nba-gold: #e4c995;
+    --nba-cream: #f1e7d3;
+}
+
+/* NBA introduction */
+
+.nba-intro {
+    position: relative;
+    overflow: hidden;
+    background: var(--nba-burgundy);
+    color: var(--nba-cream);
+}
+
+.nba-intro::after {
+    content: "NBA";
+    position: absolute;
+    right: 4%;
+    bottom: -55px;
+    font-family: var(--type-display);
+    font-size: clamp(150px, 24vw, 340px);
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(241, 231, 211, 0.045);
+    pointer-events: none;
+    user-select: none;
+}
+
+.nba-intro .analysis-kicker {
+    position: relative;
+    z-index: 1;
+    color: var(--nba-gold);
+}
+
+.nba-intro h2,
+.nba-intro h2 span {
+    position: relative;
+    z-index: 1;
+    color: var(--nba-cream);
+}
+
+.nba-intro h2 span {
+    color: var(--nba-gold);
+}
+
+.nba-intro p {
+    position: relative;
+    z-index: 1;
+    color: #eee0cc;
+}
+
+.nba-back-link {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-top: 28px;
+    padding-bottom: 7px;
+    color: var(--nba-gold);
+    border-bottom: 1px solid var(--nba-gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nba-back-link:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* NBA story section */
+
+.nba-content .analysis-section-heading h2 {
+    color: var(--nba-burgundy);
+}
+
+.nba-content .analysis-section-heading > span {
+    color: #98734c;
+}
+
+/* Lead story */
+
+.nba-lead .analysis-lead-image {
+    background: var(--nba-burgundy);
+}
+
+.nba-lead .analysis-lead-image > span {
+    background: var(--nba-burgundy);
+    color: var(--nba-cream);
+}
+
+.nba-lead .analysis-category {
+    color: #98734c;
+}
+
+/* Additional NBA stories */
+
+.nba-more {
+    margin-top: 76px;
+}
+
+.nba-card h3 {
+    transition: color 0.2s ease;
+}
+
+.nba-card:hover h3 {
+    color: var(--nba-burgundy);
+}
+
+.nba-card .analysis-card-meta span:first-child {
+    color: #98734c;
+}
+
+/* Empty state */
+
+.nba-content .analysis-empty > span {
+    color: #98734c;
+}
+
+.nba-content .analysis-empty h3 {
+    color: var(--nba-burgundy);
+}
+
+/* NBA footer */
+
+.nba-footer {
+    border-top-color: rgba(118, 45, 43, 0.25);
+}
+
+.nba-footer span:first-child {
+    color: var(--nba-burgundy);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .nba-intro::after {
+        right: -10px;
+        bottom: -20px;
+        font-size: 180px;
+    }
+
+    .nba-more {
+        margin-top: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nba-intro::after {
+        bottom: -10px;
+        font-size: 130px;
+    }
+
+    .nba-back-link {
+        margin-top: 22px;
+    }
+}

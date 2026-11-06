@@ -1,0 +1,167 @@
+/* =========================================
+   CRICKET DESK
+   Traditional Cricket Editorial Styling
+========================================= */
+
+.cricket-page {
+    --cricket-green: #315344;
+    --cricket-paper: #d8c7a5;
+    --cricket-ink: #211f1b;
+    --cricket-muted: #514b40;
+}
+
+/* Cricket introduction */
+
+.cricket-intro {
+    position: relative;
+    overflow: hidden;
+    background: var(--cricket-paper);
+    color: var(--cricket-ink);
+}
+
+.cricket-intro::after {
+    content: "CRICKET";
+    position: absolute;
+    right: 3%;
+    bottom: -35px;
+    font-family: var(--type-display);
+    font-size: clamp(100px, 18vw, 260px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    color: rgba(49, 83, 68, 0.07);
+    pointer-events: none;
+    user-select: none;
+}
+
+.cricket-intro .analysis-kicker {
+    position: relative;
+    z-index: 1;
+    color: var(--cricket-green);
+}
+
+.cricket-intro h2,
+.cricket-intro h2 span {
+    position: relative;
+    z-index: 1;
+    color: var(--cricket-ink);
+}
+
+.cricket-intro h2 span {
+    color: var(--cricket-green);
+}
+
+.cricket-intro p {
+    position: relative;
+    z-index: 1;
+    color: var(--cricket-muted);
+}
+
+.cricket-back-link {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-top: 28px;
+    padding-bottom: 7px;
+    color: var(--cricket-green);
+    border-bottom: 1px solid var(--cricket-green);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cricket-back-link:hover {
+    color: #762d2b;
+    border-color: #762d2b;
+}
+
+/* Cricket story section */
+
+.cricket-content .analysis-section-heading h2 {
+    color: var(--cricket-green);
+}
+
+.cricket-content .analysis-section-heading > span {
+    color: #82704d;
+}
+
+/* Lead story */
+
+.cricket-lead .analysis-lead-image {
+    background: var(--cricket-green);
+}
+
+.cricket-lead .analysis-lead-image > span {
+    background: var(--cricket-green);
+    color: #f1e7d3;
+}
+
+.cricket-lead .analysis-category {
+    color: var(--cricket-green);
+}
+
+/* Additional cricket stories */
+
+.cricket-more {
+    margin-top: 76px;
+}
+
+.cricket-card h3 {
+    transition: color 0.2s ease;
+}
+
+.cricket-card:hover h3 {
+    color: var(--cricket-green);
+}
+
+.cricket-card .analysis-card-meta span:first-child {
+    color: var(--cricket-green);
+}
+
+/* Empty state */
+
+.cricket-content .analysis-empty > span {
+    color: var(--cricket-green);
+}
+
+.cricket-content .analysis-empty h3 {
+    color: var(--cricket-green);
+}
+
+/* Cricket footer */
+
+.cricket-footer {
+    border-top-color: rgba(49, 83, 68, 0.25);
+}
+
+.cricket-footer span:first-child {
+    color: var(--cricket-green);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .cricket-intro::after {
+        right: -5px;
+        bottom: -5px;
+        font-size: 130px;
+    }
+
+    .cricket-more {
+        margin-top: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cricket-intro::after {
+        right: -8px;
+        bottom: 0;
+        font-size: 100px;
+    }
+
+    .cricket-back-link {
+        margin-top: 22px;
+    }
+}

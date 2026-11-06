@@ -1,0 +1,164 @@
+/* =========================================
+   NFL DESK
+   American Football Editorial Styling
+========================================= */
+
+.nfl-page {
+    --nfl-green: #263c35;
+    --nfl-gold: #d7b879;
+    --nfl-cream: #f1e7d3;
+}
+
+/* NFL introduction */
+
+.nfl-intro {
+    background: var(--nfl-green);
+    color: var(--nfl-cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.nfl-intro::after {
+    content: "NFL";
+    position: absolute;
+    right: 5%;
+    bottom: -55px;
+    font-family: var(--type-display);
+    font-size: clamp(150px, 24vw, 340px);
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(241, 231, 211, 0.045);
+    pointer-events: none;
+    user-select: none;
+}
+
+.nfl-intro .analysis-kicker {
+    color: var(--nfl-gold);
+    position: relative;
+    z-index: 1;
+}
+
+.nfl-intro h2,
+.nfl-intro h2 span {
+    color: var(--nfl-cream);
+    position: relative;
+    z-index: 1;
+}
+
+.nfl-intro h2 span {
+    color: var(--nfl-gold);
+}
+
+.nfl-intro p {
+    color: #e0d6c3;
+    position: relative;
+    z-index: 1;
+}
+
+.nfl-back-link {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-top: 28px;
+    padding-bottom: 7px;
+    color: var(--nfl-gold);
+    border-bottom: 1px solid var(--nfl-gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nfl-back-link:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* NFL story section */
+
+.nfl-content .analysis-section-heading h2 {
+    color: var(--nfl-green);
+}
+
+.nfl-content .analysis-section-heading > span {
+    color: #89764e;
+}
+
+/* Lead story */
+
+.nfl-lead .analysis-lead-image {
+    background: var(--nfl-green);
+}
+
+.nfl-lead .analysis-lead-image > span {
+    background: var(--nfl-green);
+    color: var(--nfl-cream);
+}
+
+.nfl-lead .analysis-category {
+    color: #89764e;
+}
+
+/* Additional NFL stories */
+
+.nfl-more {
+    margin-top: 76px;
+}
+
+.nfl-card h3 {
+    transition: color 0.2s ease;
+}
+
+.nfl-card:hover h3 {
+    color: #80643b;
+}
+
+.nfl-card .analysis-card-meta span:first-child {
+    color: #89764e;
+}
+
+/* Empty state */
+
+.nfl-content .analysis-empty > span {
+    color: #89764e;
+}
+
+.nfl-content .analysis-empty h3 {
+    color: var(--nfl-green);
+}
+
+/* NFL footer */
+
+.nfl-footer {
+    border-top-color: rgba(38, 60, 53, 0.25);
+}
+
+.nfl-footer span:first-child {
+    color: var(--nfl-green);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .nfl-intro::after {
+        right: -10px;
+        bottom: -20px;
+        font-size: 180px;
+    }
+
+    .nfl-more {
+        margin-top: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nfl-intro::after {
+        font-size: 130px;
+        bottom: -10px;
+    }
+
+    .nfl-back-link {
+        margin-top: 22px;
+    }
+}

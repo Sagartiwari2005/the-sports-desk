@@ -1,0 +1,53 @@
+/* =========================================
+   THE SPORTS DESK â€” DESIGN SYSTEM
+========================================= */
+
+:root {
+  --navy: #101e33;
+  --navy-light: #1b304d;
+  --blue: #2478d4;
+  --blue-light: #eaf2fc;
+  --ink: #172235;
+  --muted: #6c7788;
+  --paper: #ffffff;
+  --soft: #f4f6f9;
+  --border: #e5e9ef;
+  --font-main: Arial, Helvetica, sans-serif;
+}
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #172235;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* =====================================================
+   THE SPORTS DESK â€” MATCHDAY CHRONICLE HERITAGE EDITION
+   Visual overrides only. Original layout and behaviour
+   are intentionally preserved above this section.
+===================================================== */
+
+:root {
+  --navy: #211d19;
+  --navy-light: #393129;
+  --blue: #812c29;
+  --blue-light: #eadbc5;
+  --ink: #211d19;
+  --muted: #746b5e;
+  --paper: #f1e7d2;
+  --soft: #e9dfca;
+  --border: #d3c5ad;
+  --burgundy: #812c29;
+  --forest: #254536;
+  --heritage-gold: #b49a67;
+  --font-main: Arial, Helvetica, sans-serif;
+}
+
+
+/* Shared editorial typography scale */
+:root {
+  --type-display: clamp(48px, 6.2vw, 84px);
+  --type-card: clamp(23px, 2.1vw, 27px);
+  --type-intro: 17px;
+}
