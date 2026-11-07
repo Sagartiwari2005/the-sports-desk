@@ -3,6 +3,8 @@ import { client } from "../sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { projectId, dataset } from "../sanity/env";
 
+export const revalidate = 60;
+
 const imageBuilder = imageUrlBuilder({
     projectId,
     dataset,

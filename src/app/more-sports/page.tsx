@@ -1,3 +1,4 @@
+export const revalidate = 60;
 const sports = [
     {
         number: "01",

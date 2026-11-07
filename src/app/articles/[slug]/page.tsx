@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import type { ReactNode } from "react";
 
+export const revalidate = 60;
+
 type SanityImage = {
     url?: string;
     alt?: string;
